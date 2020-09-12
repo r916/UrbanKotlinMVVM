@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -28,26 +28,28 @@
                 android:hint="Type word to search"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/iv_home"/>
+                app:layout_constraintEnd_toStartOf="@id/button_home"/>
 
-            <ImageView
-                android:id="@+id/iv_home"
+            <ImageButton
+                android:id="@+id/button_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="navigateToHome"
+                android:padding="10dp"
                 android:src="@drawable/ic_baseline_home"
-                android:padding="10dp"
-                app:layout_constraintStart_toEndOf="@+id/et_search_text"
-                app:layout_constraintEnd_toStartOf="@+id/iv_saved_definitions"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button_saved_definitions"
+                app:layout_constraintStart_toEndOf="@+id/et_search_text" />
 
-            <ImageView
-                android:id="@+id/iv_saved_definitions"
+            <ImageButton
+                android:id="@+id/button_saved_definitions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_bookmark_filled"
+                android:onClick="navigateToSaved"
                 android:padding="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                android:src="@drawable/ic_bookmark_filled"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -66,7 +68,8 @@
             android:id="@+id/nav_host"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph">
 
         </fragment>

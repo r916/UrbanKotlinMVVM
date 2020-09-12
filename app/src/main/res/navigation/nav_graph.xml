@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/homePageFragment">
 
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.example.urbankotlinmvvm.view.fragments.HomePageFragment"
+        android:label="HomePageFragment" >
+        <action
+            android:id="@+id/action_homePageFragment_to_savedPageFragment"
+            app:destination="@id/savedPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedPageFragment"
+        android:name="com.example.urbankotlinmvvm.view.fragments.SavedPageFragment"
+        android:label="SavedPageFragment" >
+        <action
+            android:id="@+id/action_savedPageFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment" />
+    </fragment>
 </navigation>
