@@ -8,4 +8,5 @@ class Repository(
 ) {
     suspend fun getDefinitions(term: String) =
         RetrofitInstance.api.getDefinitions(term)
+
 }
